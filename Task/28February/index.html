@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learning and Earning Monitoring System: Welcome</title>
+    <style>
+      body {
+        width: 1200px;
+        margin: 0 auto;
+        margin-bottom: 30px;
+        background-color: #f4f4f4;
+      }
+
+      ul {
+        font-size: 14px;
+        font-weight: bold;
+        margin-top: 10px;
+        width: auto;
+        border: 2px solid #bebebe;
+        border-bottom: 1px solid #a2a2a2;
+        border-radius: 3px;
+        cursor: pointer;
+        background: linear-gradient(to bottom, #f5f5f5, #e2e2e2);
+      }
+
+      ul li {
+        list-style: none;
+        display: inline-block;
+        padding: 8px 8px;
+      }
+
+      ul li:hover {
+        background: #ddd;
+      }
+
+      ul li a {
+        text-decoration: none;
+        color: #2a2a2a;
+      }
+
+      span {
+        font-size: 14px;
+        color: #767676;
+      }
+
+      .dot {
+        font-size: 16px;
+        font-family: Arial, sans-serif;
+        display: flex;
+        align-items: center;
+        white-space: nowrap;
+      }
+
+      .dot::after {
+        content: "";
+        flex-grow: 1;
+        border-bottom: 1px dashed #000;
+        margin-left: 10px;
+      }
+
+      .form {
+        display: grid;
+        grid-template-columns: 1fr 1px 1fr;
+      }
+
+      .separator {
+        height: 100%;
+        background-color: #cccccc;
+      }
+
+      .left {
+        margin-right: 60px;
+      }
+      .right {
+        margin-left: 30px;
+      }
+
+      label {
+        font-weight: bold;
+        display: block;
+        margin-bottom: 5px;
+        font-size: 14px;
+        color: #767676;
+      }
+
+      input {
+        padding: 5px;
+        font-size: 14px;
+        border: 2px solid #dddddd;
+        border-radius: 5px;
+        background: white;
+        margin-bottom: 5px;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      select {
+        padding: 5px;
+        font-size: 14px;
+        border: 2px solid #dddddd;
+        border-radius: 5px;
+        background: white;
+        cursor: pointer;
+        margin-bottom: 5px;
+        width: 100%;
+      }
+
+      fieldset {
+        border: 2px solid #dddddd;
+        margin-bottom: 5px;
+        color: #767676;
+      }
+
+      legend {
+        font-size: 14px;
+        font-weight: bold;
+      }
+
+      .dob-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+
+      .gender,
+      .handicapped,
+      .computer {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .gender label,
+      .handicapped label,
+      .computer label {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+
+      input[type="submit"] {
+        font-size: 18px;
+        font-weight: bold;
+        color: #666666;
+        margin-top: 10px;
+        display: block;
+        width: auto;
+        padding: 5px 10px;
+        border: 1px solid #bebebe;
+        border-bottom: 3px solid #a2a2a2;
+        border-radius: 3px;
+        background: linear-gradient(to bottom, #e8e8e8, #d2d2d2);
+        cursor: pointer;
+      }
+
+      input[type="submit"]:hover {
+        background: #dfdfdf;
+      }
+      header {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div>
+        <img src="../images/ictdd.png" alt="" width="150px" />
+      </div>
+
+      <div>
+        <img src="../images/ledp.png" alt="" width="250px" />
+      </div>
+    </header>
+
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Course Module - 2025</a></li>
+        <li><a href="#">Class Schedule</a></li>
+        <li><a href="#">Success Story</a></li>
+        <li>
+          <a href="#">Attendance</a>
+          <a href="#">Attendance Report</a>
+        </li>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Login</a></li>
+      </ul>
+    </nav>
+
+    <h3 style="color: #ec8701">Student Registration Form</h3>
+    <hr />
+    <h4 class="dot">Please enter relevant information</h4>
+
+    <form action="">
+      <p style="font-size: 12px">Mandatory Field*</p>
+
+      <div class="form">
+        <div class="left">
+          <label for="district"
+            >District (Institute District: Where you want to do your
+            course)*</label
+          >
+          <select name="" id="district">
+            <option value="" selected disabled>--Select One--</option>
+            <option value="Dhaka">Dhaka</option>
+            <option value="Gazipur">Gazipur</option>
+            <option value="Chandpur">Chandpur</option>
+            <option value="Narayanganj">Narayanganj</option>
+            <option value="Cumilla">Cumilla</option>
+          </select>
+
+          <label for="course">Course*</label>
+
+          <select name="" id="course">
+            <option value="" selected disabled>--Select One--</option>
+            <option value="Web Design">Web Design</option>
+            <option value="Graphic Design">Graphic Design</option>
+            <option value="Digital Marketing">Digital Marketing</option>
+          </select>
+
+          <label for="Sname">Student Name*</label>
+          <input type="text" name="" id="Sname" />
+
+          <label for="Fname">Father Name*</label>
+          <input type="text" name="" id="Fname" />
+
+          <label for="Mname">Mother Name*</label>
+          <input type="text" name="" id="Mname" />
+
+          <fieldset>
+            <legend>Date of Birth*</legend>
+
+            <div class="dob-container">
+              <div class="day">
+                <label for="day">Day</label>
+                <select name="" id="day">
+                  <option value="" selected disabled>--Select One--</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select>
+              </div>
+
+              <div class="month">
+                <label for="month">Month</label>
+                <select name="" id="month">
+                  <option value="" selected disabled>--Select One--</option>
+                  <option value="January">January</option>
+                  <option value="February">February</option>
+                  <option value="March">March</option>
+                </select>
+              </div>
+
+              <div class="year">
+                <label for="year">Year</label>
+                <select name="" id="year">
+                  <option value="" selected disabled>--Select One--</option>
+                  <option value="2001">2001</option>
+                  <option value="2002">2002</option>
+                  <option value="2003">2003</option>
+                  <option value="2004">2004</option>
+                  <option value="2005">2005</option>
+                </select>
+              </div>
+            </div>
+          </fieldset>
+
+          <div class="gender">
+            <label for="">Gender*</label>
+
+            <label for="male" style="font-weight: 900; color: #666666">
+              <input type="radio" name="gender" id="male" /> Male
+            </label>
+
+            <label for="female" style="font-weight: 900; color: #666666">
+              <input type="radio" name="gender" id="female" /> Female</label
+            >
+          </div>
+
+          <div class="handicapped">
+            <label for="">Physically Handicapped*</label>
+
+            <label for="yes" style="font-weight: 900; color: #666666">
+              <input type="radio" name="handicapped" id="yes" /> Yes
+            </label>
+
+            <label for="no" style="font-weight: 900; color: #666666">
+              <input type="radio" name="handicapped" id="no" /> No</label
+            >
+          </div>
+
+          <label for="mail">Email*</label>
+          <input type="email" name="" id="mail" />
+          <span>(e.g: example@mail.com)</span>
+
+          <label for="phone">Phone (Must be 11 Digits)*</label>
+          <input type="number" name="" id="phone" />
+          <span>(e.g:0155123456)</span>
+        </div>
+
+        <div class="separator"></div>
+
+        <div class="right">
+          <label for="type"> Identification Type* </label>
+          <select name="" id="type">
+            <option value="" selected disabled>--Select One--</option>
+            <option value="Birth Certificate No.">Birth Certificate No.</option>
+            <option value="National ID">National ID</option>
+          </select>
+
+          <label for="identification">
+            Identification No. (Must be 10 digits for new NID or 17 digits for
+            old NID. If your National ID is 13 digits, then please add your
+            birth year with the ID as prefix. Example:
+            1980XXXXXXXXXXXXX)*</label
+          >
+          <input type="text" id="identification" />
+
+          <label for="type"> Home District* </label>
+          <select name="" id="type">
+            <option value="" selected disabled>--Select One--</option>
+            <option value="Dhaka">Dhaka</option>
+            <option value="Gazipur">Gazipur</option>
+            <option value="Chandpur">Chandpur</option>
+            <option value="Narayanganj">Narayanganj</option>
+            <option value="Cumilla">Cumilla</option>
+          </select>
+
+          <label for="type"> Upazila* </label>
+          <select name="" id="type">
+            <option value="" selected disabled>--Select One--</option>
+            <option value="Dhaka">Dhaka</option>
+            <option value="Gazipur">Gazipur</option>
+            <option value="Chandpur">Chandpur</option>
+            <option value="Narayanganj">Narayanganj</option>
+            <option value="Cumilla">Cumilla</option>
+          </select>
+
+          <label for="village">
+            Village/House No./Road No./Other Alternative*</label
+          >
+          <input type="text" id="village" />
+
+          <label for="post"> Post Office*</label>
+          <input type="text" id="post" />
+
+          <label for="type">
+            Educational Qualification*
+            <span style="color: black; font-size: 12px">(Higher Level)</span>
+          </label>
+          <select name="" id="type">
+            <option value="" selected disabled>--Select One--</option>
+            <option value="SSC">SSC</option>
+            <option value="HSC">HSC</option>
+            <option value="Bachelor">Bachelor</option>
+            <option value="Master">Master</option>
+            <option value="Phd">Phd</option>
+          </select>
+
+          <div class="computer">
+            <label for="">Have any computer?*</label>
+
+            <label for="yes" style="font-weight: 900; color: #666666">
+              <input type="radio" name="computer" id="yes" /> Yes
+            </label>
+
+            <label for="no" style="font-weight: 900; color: #666666">
+              <input type="radio" name="computer" id="no" /> No</label
+            >
+          </div>
+
+          <label for="">Photograph*</label>
+          <input type="file" name="" id="" />
+          <span
+            >(File type must be jpg or jpeg or png. Maximum file size 2
+            mb.)</span
+          >
+
+          <label for="">Signature*</label>
+          <input type="file" name="" id="" />
+          <span
+            >(File type must be jpg or jpeg or png. Maximum file size 2 mb.)
+          </span>
+
+          <input type="submit" value="Submit Data" />
+        </div>
+      </div>
+    </form>
+  </body>
+</html>
