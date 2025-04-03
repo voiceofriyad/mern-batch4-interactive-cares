@@ -1,0 +1,12 @@
+h1 ~ p {
+  color: blueviolet;
+}
+
+@font-face {
+  font-family: "alinur";
+  src: url(../../../fonts/Li\ Alinur\ Tumatul\ Unicode.ttf);
+}
+
+h2 {
+  font-family: "alinur";
+}
