@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM</title>
+  </head>
+  <body>
+    <h1>Hello World</h1>
+    <button>Click Me</button>
+    <br />
+    <br />
+    <br />
+
+    <form action="">
+      <label for="name">Name</label>
+      <input type="text" name="" id="name" /> <br />
+
+      <label for="email">Email</label>
+      <input type="text" name="" id="email" /> <br />
+
+      <label for="range">Range</label>
+      <input type="range" name="" id="range" min="20" max="80" /> <br />
+
+      <label for="color">Color</label>
+      <input type="color" name="" id="color" /> <br />
+
+      <label for="clickme">Cricket</label>
+      <input type="checkbox" name="" id="clickme" /> <br />
+
+      <input type="submit" value="Submit" />
+    </form>
+
+    <script>
+      //   let title = document.querySelector("h1");
+      //   let btn = document.querySelector("button");
+      //   btn.addEventListener("click", function () {
+      //     title.style.color = "#fff";
+      //     title.style.backgroundColor = "orange";
+      //     title.style.padding = "15px";
+      //   });
+
+      let inputs = document.querySelectorAll("input");
+      //   inputs[0].value;
+      let form = document.querySelector("form");
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        // console.log("Hello Riyad");
+        let name = inputs[0].name;
+      });
+    </script>
+  </body>
+</html>

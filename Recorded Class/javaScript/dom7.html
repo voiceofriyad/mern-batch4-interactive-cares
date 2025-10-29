@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM</title>
+    <style>
+      .red {
+        background-color: red;
+        color: aliceblue;
+        padding: 15px;
+        width: 25%;
+        margin: 0 auto;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="title">Hello World</h1>
+    <button>Click Me</button>
+    <img src="" alt="" />
+
+    <script>
+      let title = document.querySelector("h1");
+      let btn = document.querySelector("button");
+      //   title.className = "myTitle";
+      //   title.classList.add("myNewTitle");
+      //   title.classList.remove("title");
+      //   title.classList.toggle("titleOne");
+      //   title.classList.toggle("titleOne");
+      //   title.classList.toggle("titleOne");
+
+      btn.addEventListener("click", function () {
+        // title.classList.add("red");
+        title.classList.toggle("red");
+      });
+      //   btn.id = "one";
+      title.title = "Hello Riyad";
+
+      btn.addEventListener("click", function () {
+        document.querySelector("img").src =
+          "https://media.istockphoto.com/id/1293325404/photo/buildings-landmarks.jpg?s=612x612&w=0&k=20&c=xrpZQM_eRsXaJMQbZ-FgdJfhqJLMUlqceVHnbtcj5vE=";
+      });
+    </script>
+  </body>
+</html>

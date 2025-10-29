@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      /* span {
+        display: none;
+      } */
+    </style>
+    <title>DOM</title>
+  </head>
+  <body>
+    <h1><span>Hello</span> World</h1>
+    <script>
+      let title = document.querySelector("h1");
+      // title.textContent = "Hello Jupiter";
+      // title.innerText = "Hello Mars";
+      title.innerHTML = "Hello <span style = 'color:red'>Riyad</span>";
+    </script>
+  </body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM</title>
+  </head>
+  <body>
+    <div>
+      <h1>Hello World</h1>
+      <p>Hello Jupiter</p>
+    </div>
+
+    <div>
+      <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+        <li>Item 5</li>
+      </ul>
+    </div>
+    <script>
+      //   let div = document.querySelector("div");
+      //   let childs = div.children;
+      //   childs[1].style.color = "blue";
+
+      //   for (let i = 0; i < childs.length; i++) {
+      //     childs[i].style.color = "blue";
+      //   }
+
+      //   childs.forEach((element) => {
+      //     element.style.color = "blue";
+      //   });
+
+      //   let title = document.querySelector("h1");
+      //   console.log(title.parentElement);
+      //   title.parentElement.style.backgroundColor = "green";
+
+      //   let item = document.querySelector("li");
+      //   item.style.color = "red";
+      //   item.nextElementSibling.style.color = "green";
+      //   item.nextElementSibling.nextElementSibling.style.color = "blue";
+
+      let item = document.querySelector("li:last-child");
+      item.style.color = "red";
+      item.previousElementSibling.style.color = "green";
+      item.previousElementSibling.previousElementSibling.style.color = "blue";
+    </script>
+  </body>
+</html>

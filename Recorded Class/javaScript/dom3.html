@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dom Selection</title>
+  </head>
+  <body>
+    <p class="para">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium,
+      cumque?
+    </p>
+    <p class="para">
+      Deleniti exercitationem adipisci neque ex reiciendis consectetur beatae
+      esse autem.
+    </p>
+
+    <ul>
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+      <li>Item 4</li>
+      <li>Item 5</li>
+    </ul>
+    <script>
+      //   let para = document.getElementsByClassName("para");
+
+      //   let para = document.querySelectorAll(".para");
+
+      //   console.log(para);
+
+      //   para[1].textContent = "Helloooooo";
+
+      //   for (let i = 0; i < para.length; i++) {
+      //     para[i].style.color = "cyan";
+      //   }
+
+      //   para.forEach((el) => (el.style.color = "green"));
+
+      //   let listItem = document.querySelectorAll("li");
+      //   //   console.log(listItem);
+      //   listItem.forEach((el) => {
+      //     el.style.backgroundColor = "tomato";
+      //     el.style.color = "#fff";
+      //   });
+
+      let listItem = document.querySelector("li:nth-of-type(3)");
+      listItem.style.color = "blue";
+    </script>
+  </body>
+</html>
