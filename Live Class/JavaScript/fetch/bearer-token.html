@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fetch with Bearer Token Example</title>
+    <script src="//cdn.tailwindcss.com"></script>
+  </head>
+
+  <body
+    class="bg-gray-100 min-h-screen flex flex-col items-center justify-center"
+  >
+    <div class="bg-white p-6 rounded shadow-md w-full max-w-md">
+      <h1 class="text-2xl font-bold mb-4">Fetch: Bearer Token Example</h1>
+      <button
+        id="fetchBtn"
+        class="bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-800"
+      >
+        Fetch Protected Data
+      </button>
+      <div id="result" class="mt-4 text-gray-700"></div>
+      <p class="text-xs text-gray-400 mt-2">
+        (Uses reqres.in API with a demo token)
+      </p>
+    </div>
+    <script>
+      document.getElementById("fetchBtn").onclick = async function () {
+        const res = await fetch("https://reqres.in/api/users/2", {
+          headers: {
+            Authorization: "Bearer reqres-free-v1",
+            "x-api-key": "reqres-free-v1",
+          },
+        });
+        const data = await res.json();
+        document.getElementById("result").textContent = data.data
+          ? `User: ${data.data.first_name} ${data.data.last_name}`
+          : JSON.stringify(data);
+      };
+    </script>
+  </body>
+</html>

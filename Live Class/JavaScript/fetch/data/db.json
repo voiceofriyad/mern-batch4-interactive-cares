@@ -1,0 +1,66 @@
+{
+  "books": [
+    {
+      "title": "Kishor Ananda",
+      "author": "Abdullah Sayed",
+      "id": "1"
+    },
+    {
+      "id": "2",
+      "title": "Amar Sonar Bangla",
+      "author": "Abdullah Sayed"
+    },
+    {
+      "id": "3",
+      "title": "Clean Code",
+      "author": "Robert C. Martin"
+    },
+    {
+      "id": "4",
+      "title": "Design Patterns",
+      "author": "Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides"
+    },
+    {
+      "id": "f300",
+      "title": "3",
+      "author": "6"
+    },
+    {
+      "id": "2427",
+      "title": null,
+      "author": null
+    },
+    {
+      "id": "5bed",
+      "title": "dfgdf",
+      "author": "sdfgsd"
+    },
+    {
+      "id": "467f",
+      "title": "ddd",
+      "author": "dddddd"
+    },
+    {
+      "id": "8252",
+      "title": "babu",
+      "author": "kaku"
+    },
+    {
+      "id": "e574",
+      "title": null,
+      "author": null
+    }
+  ],
+  "users": [
+    {
+      "name": "John Doe",
+      "email": "john@doe.com",
+      "id": "1"
+    },
+    {
+      "name": "Jane Smith",
+      "email": "jane@doe.com",
+      "id": "2"
+    }
+  ]
+}

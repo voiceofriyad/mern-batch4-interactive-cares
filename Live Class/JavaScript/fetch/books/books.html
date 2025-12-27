@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Fetch API Demo</title>
+    <script defer src="books.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body class="bg-gray-100 p-8">
+    <div class="max-w-2xl mx-auto bg-white p-6 rounded shadow">
+      <h1 class="text-2xl font-bold mb-4">📚 Book List</h1>
+      <ul id="book-list" class="mb-4 space-y-2"></ul>
+
+      <button
+        onclick="addBook()"
+        class="bg-green-500 text-white px-4 py-2 rounded mr-2"
+      >
+        ➕ Add Book
+      </button>
+      <button
+        onclick="updateBook()"
+        class="bg-yellow-500 text-white px-4 py-2 rounded mr-2"
+      >
+        ✏️ Update Book
+      </button>
+      <button
+        onclick="patchBook()"
+        class="bg-blue-500 text-white px-4 py-2 rounded mr-2"
+      >
+        🩹 Patch Book
+      </button>
+      <button
+        onclick="deleteBook()"
+        class="bg-red-500 text-white px-4 py-2 rounded"
+      >
+        🗑️ Delete Book
+      </button>
+    </div>
+  </body>
+</html>

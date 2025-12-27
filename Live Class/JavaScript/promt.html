@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Love Calculator</title>
+  </head>
+  <body>
+    <h1>Love Calculator</h1>
+
+    <script>
+      let person1 = prompt("What is your name?");
+      let person2 = prompt("What is your partner's name?");
+
+      let calulateLove = () => {
+        let result = Math.ceil(Math.random() * 101);
+
+        if (result > 80) {
+          alert("Turu Love!!!, and your love score is: " + result);
+        } else if (result > 50) {
+          alert("Gasay Alrady!!!, and your love score is: " + result);
+        } else {
+          alert("Tata Goodbye!!!, and your love score is: " + result);
+        }
+      };
+
+      calulateLove();
+    </script>
+  </body>
+</html>
