@@ -1,0 +1,14 @@
+.form {
+  text-align: center;
+}
+.student-section {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30px;
+}
+
+.all-list,
+.present-list,
+.absent-list {
+  border: 1px solid black;
+}
