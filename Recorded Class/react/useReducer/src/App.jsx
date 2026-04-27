@@ -1,22 +1,22 @@
 import { useReducer } from "react";
 import "./App.css";
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "increase_counter": {
+      return state + action.payload;
+    }
+
+    case "decrease_counter": {
+      return state - action.payload;
+    }
+
+    default: {
+      return state;
+    }
+  }
+};
 
 function App() {
-  const reducer = (state, action) => {
-    switch (action.type) {
-      case "increase_counter": {
-        return state + action.payload;
-      }
-
-      case "decrease_counter": {
-        return state - action.payload;
-      }
-
-      default: {
-        return state;
-      }
-    }
-  };
   const [counter, dispatch] = useReducer(reducer, 0);
   return (
     <>
