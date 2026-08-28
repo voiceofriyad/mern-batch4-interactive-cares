@@ -16,7 +16,7 @@ const reducer = (state, action) => {
     }
 
     case "UPDATE_NOTE": {
-      console.log(action.payload);
+      // console.log(action.payload);
       let notes = state.map((item) => {
         if (item.id === action.payload.id) {
           return {

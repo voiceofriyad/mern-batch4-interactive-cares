@@ -6,8 +6,14 @@ function Todos() {
   const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/todos")
-      .then((res) => res.json())
+    fetch("https://jsonplaceholder.typicode.com/todo")
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error(`Failed to load`);
+        }
+        return res.json();
+      })
+
       .then((data) => {
         setTodos(data);
         setLoading(false);
