@@ -1,11 +1,14 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Home from "../components/Home";
+import About from "../components/About";
 
 export default function Router() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<h1>Hello Home Page</h1>} />
-        <Route path="/about" element={<h3>Hello About Page</h3>} />
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="*" element={<p>This path does not exist</p>} />
       </Routes>
     </BrowserRouter>
   );
