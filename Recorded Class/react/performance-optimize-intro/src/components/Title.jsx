@@ -1,4 +1,6 @@
-export default function Title() {
+import { memo } from "react";
+
+function Title() {
   console.log("I am Title");
 
   return (
@@ -7,3 +9,5 @@ export default function Title() {
     </>
   );
 }
+
+export default memo(Title);

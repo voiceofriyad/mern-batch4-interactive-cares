@@ -1,4 +1,6 @@
-export default function Button({ handlerFunction }) {
+import { memo } from "react";
+
+function Button({ handlerFunction }) {
   console.log("I am Button");
 
   return (
@@ -7,3 +9,5 @@ export default function Button({ handlerFunction }) {
     </>
   );
 }
+
+export default memo(Button);

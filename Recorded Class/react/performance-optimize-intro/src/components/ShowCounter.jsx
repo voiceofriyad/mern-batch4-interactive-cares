@@ -1,4 +1,6 @@
-export default function ShowCounter({ title, counter }) {
+import { memo } from "react";
+
+function ShowCounter({ title, counter }) {
   console.log("I am Show Counter");
 
   return (
@@ -9,3 +11,5 @@ export default function ShowCounter({ title, counter }) {
     </>
   );
 }
+
+export default memo(ShowCounter);
