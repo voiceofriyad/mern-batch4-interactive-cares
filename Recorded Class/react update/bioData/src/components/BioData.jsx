@@ -39,7 +39,7 @@ const BioData = (props) => {
         <h2>My Social Links</h2>
         <ul>
           {props?.socialLinks?.map((socialLink) => (
-            <li>
+            <li key={socialLink.handle}>
               <strong>{socialLink.platformName}: </strong>
               {socialLink.handle}
             </li>
