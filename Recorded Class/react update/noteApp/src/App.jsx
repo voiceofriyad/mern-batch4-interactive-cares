@@ -26,6 +26,11 @@ function App() {
     setNoteTitle("");
   };
 
+  const removeHandler = (noteId) => {
+    const updatedNote = notes.filter((item) => item.id !== noteId);
+    setNotes(updatedNote);
+  };
+
   return (
     <>
       <form onSubmit={submitHandler}>
@@ -41,7 +46,7 @@ function App() {
               <li key={note.id}>
                 <span>{note.title}</span>
                 <button>Edit</button>
-                <button>Delete</button>
+                <button onClick={() => removeHandler(note.id)}>Delete</button>
               </li>
               <br />
             </>
