@@ -17,6 +17,10 @@ function App() {
       return alert(`Please provide a valid title`);
     }
 
+    editMode ? updateHandler() : createHandler();
+  };
+
+  const createHandler = () => {
     const newNote = {
       id: crypto.randomUUID(),
       title: noteTitle,
@@ -31,11 +35,33 @@ function App() {
     setNotes(updatedNote);
   };
 
+  const editHandler = (note) => {
+    setEditMode(true);
+    setEditableNote(note);
+    setNoteTitle(note.title);
+  };
+
+  const updateHandler = () => {
+    const updatedNotes = notes.map((item) => {
+      if (item.id === editableNote.id) {
+        return {
+          ...item,
+          title: noteTitle,
+        };
+      }
+      return item;
+    });
+
+    setNotes(updatedNotes);
+    setEditMode(false);
+    setNoteTitle("");
+  };
+
   return (
     <>
       <form onSubmit={submitHandler}>
         <input type="text" value={noteTitle} onChange={changeTitleHandler} />
-        <button type="submit">Add Note</button>
+        <button type="submit">{editMode ? "Update Note" : "Add Note"}</button>
       </form>
 
       <div className="note-list">
@@ -45,7 +71,7 @@ function App() {
             <>
               <li key={note.id}>
                 <span>{note.title}</span>
-                <button>Edit</button>
+                <button onClick={() => editHandler(note)}>Edit</button>
                 <button onClick={() => removeHandler(note.id)}>Delete</button>
               </li>
               <br />
