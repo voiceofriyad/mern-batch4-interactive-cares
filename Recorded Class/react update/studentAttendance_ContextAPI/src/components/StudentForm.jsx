@@ -1,56 +1,9 @@
-const StudentForm = (props) => {
-  const {
-    editMode,
-    setEditMode,
-    students,
-    setStudents,
-    editableStudent,
-    setEditableStudent,
-    studentName,
-    setStudentName,
-  } = props;
+import { useContext } from "react";
+import { StudentCtx } from "../contexts/Student";
 
-  const changeNameHandler = (e) => {
-    setStudentName(e.target.value);
-  };
-
-  const submitHandler = (e) => {
-    e.preventDefault();
-
-    if (studentName.trim() === "") {
-      return alert(`Please provide a valid student name`);
-    }
-
-    editMode ? updateHandler() : createHandler();
-  };
-
-  const createHandler = () => {
-    const newStudent = {
-      id: crypto.randomUUID(),
-      name: studentName,
-      isPresent: undefined,
-    };
-
-    setStudents([...students, newStudent]);
-    setStudentName("");
-  };
-
-  const updateHandler = () => {
-    const updatedStudentList = students.map((student) => {
-      if (student.id === editableStudent.id) {
-        return {
-          ...student,
-          name: studentName,
-        };
-      }
-      return student;
-    });
-
-    setStudents(updatedStudentList);
-    setEditMode(false);
-    setEditableStudent(null);
-    setStudentName("");
-  };
+const StudentForm = () => {
+  const { editMode, studentName, submitHandler, changeNameHandler } =
+    useContext(StudentCtx);
 
   return (
     <form onSubmit={submitHandler}>
