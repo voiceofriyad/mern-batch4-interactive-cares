@@ -1,69 +1,114 @@
-import { createContext, useState } from "react";
+import { createContext, useReducer } from "react";
 
 export const StudentCtx = createContext();
+
+const initState = {
+  studentName: "",
+  students: [],
+  editMode: false,
+  editableStudent: null,
+};
+
+const studentReducer = (state, action) => {
+  switch (action.type) {
+    case "CHANGE_STUDENT_NAME": {
+      return {
+        ...state,
+        studentName: action.payload,
+      };
+    }
+
+    case "CREATE_STUDENT": {
+      const newStudent = {
+        id: crypto.randomUUID(),
+        name: state.studentName,
+        isPresent: undefined,
+      };
+
+      return {
+        ...state,
+        students: [...state.students, newStudent],
+        studentName: "",
+      };
+    }
+
+    case "EDIT_STUDENT": {
+      return {
+        ...state,
+        editMode: true,
+        editableStudent: action.payload,
+        studentName: action.payload.name,
+      };
+    }
+
+    case "UPDATE_STUDENT": {
+      return {
+        ...state,
+        students: state.students.map((student) => {
+          if (student.id === state.editableStudent.id) {
+            return {
+              ...student,
+              name: state.studentName,
+            };
+          }
+          return student;
+        }),
+
+        editMode: false,
+        editableStudent: null,
+        studentName: "",
+      };
+    }
+
+    case "REMOVE_STUDENT": {
+      return {
+        ...state,
+        students: state.students.filter(
+          (student) => student.id !== action.payload,
+        ),
+      };
+    }
+
+    case "CHANGE_isPRESENT_STATUS_OF_A_STUDENT": {
+      return {
+        ...state,
+        students: state.students.map((item) => {
+          if (item.id === action.payload.id) {
+            return {
+              ...item,
+              isPresent: action.payload.isPresent,
+            };
+          }
+          return item;
+        }),
+      };
+    }
+
+    default: {
+      return state;
+    }
+  }
+};
 
 const StudentProvider = (props) => {
   const { children } = props;
 
-  const [studentName, setStudentName] = useState("");
-  const [students, setStudents] = useState([]);
-  const [editMode, setEditMode] = useState(false);
-  const [editableStudent, setEditableStudent] = useState(null);
+  const [studentStates, dispatch] = useReducer(studentReducer, initState);
 
   const changeNameHandler = (e) => {
-    setStudentName(e.target.value);
+    dispatch({ type: "CHANGE_STUDENT_NAME", payload: e.target.value });
   };
 
   const submitHandler = (e) => {
     e.preventDefault();
 
-    if (studentName.trim() === "") {
+    if (studentStates.studentName.trim() === "") {
       return alert(`Please provide a valid student name`);
     }
 
-    editMode ? updateHandler() : createHandler();
-  };
-
-  const createHandler = () => {
-    const newStudent = {
-      id: crypto.randomUUID(),
-      name: studentName,
-      isPresent: undefined,
-    };
-
-    setStudents([...students, newStudent]);
-    setStudentName("");
-  };
-
-  const updateHandler = () => {
-    const updatedStudentList = students.map((student) => {
-      if (student.id === editableStudent.id) {
-        return {
-          ...student,
-          name: studentName,
-        };
-      }
-      return student;
-    });
-
-    setStudents(updatedStudentList);
-    setEditMode(false);
-    setEditableStudent(null);
-    setStudentName("");
-  };
-
-  const editHandler = (student) => {
-    setEditMode(true);
-    setEditableStudent(student);
-    setStudentName(student.name);
-  };
-
-  const removeHandler = (studentId) => {
-    const updatedStudentList = students.filter(
-      (student) => student.id !== studentId,
-    );
-
-    setStudents(updatedStudentList);
+    studentStates.editMode
+      ? dispatch({ type: "UPDATE_STUDENT" })
+      : dispatch({ type: "CREATE_STUDENT" });
   };
 
   const makePresentHandler = (student) => {
@@ -73,17 +118,10 @@ const StudentProvider = (props) => {
       );
     }
 
-    const updatedStudentList = students.map((item) => {
-      if (item.id === student.id) {
-        return {
-          ...item,
-          isPresent: true,
-        };
-      }
-      return item;
+    dispatch({
+      type: "CHANGE_isPRESENT_STATUS_OF_A_STUDENT",
+      payload: { id: student.id, isPresent: true },
     });
-
-    setStudents(updatedStudentList);
   };
 
   const makeAbsentHandler = (student) => {
@@ -93,45 +131,24 @@ const StudentProvider = (props) => {
       );
     }
 
-    const updatedStudentList = students.map((item) => {
-      if (item.id === student.id) {
-        return {
-          ...item,
-          isPresent: false,
-        };
-      }
-      return item;
+    dispatch({
+      type: "CHANGE_isPRESENT_STATUS_OF_A_STUDENT",
+      payload: { id: student.id, isPresent: false },
     });
-
-    setStudents(updatedStudentList);
   };
 
   const toggleList = (student) => {
-    const updatedStudentList = students.map((item) => {
-      if (item.id === student.id) {
-        return {
-          ...item,
-          isPresent: !item.isPresent,
-        };
-      }
-      return item;
+    dispatch({
+      type: "CHANGE_isPRESENT_STATUS_OF_A_STUDENT",
+      payload: { id: student.id, isPresent: !student.isPresent },
     });
-    setStudents(updatedStudentList);
   };
 
   const ctxValue = {
-    studentName,
-    setStudentName,
-    students,
-    setStudents,
-    editMode,
-    setEditMode,
-    editableStudent,
-    setEditableStudent,
+    studentStates,
+    dispatch,
     changeNameHandler,
     submitHandler,
-    editHandler,
-    removeHandler,
     makeAbsentHandler,
     makePresentHandler,
     toggleList,
