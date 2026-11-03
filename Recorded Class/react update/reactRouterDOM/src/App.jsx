@@ -1,5 +1,4 @@
 import { Fragment, useEffect, useState } from "react";
-import "./App.css";
 
 function App() {
   const [noteTitle, setNoteTitle] = useState("");
