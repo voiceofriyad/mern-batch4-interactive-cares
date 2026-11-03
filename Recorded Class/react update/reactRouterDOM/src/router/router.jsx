@@ -1,5 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
+import App from "../App.jsx";
 import About from "../pages/About";
+import ErrorPage from "../pages/ErrorPage.jsx";
+import Home from "../pages/Home.jsx";
+import PostDetails from "../pages/PostDetails.jsx";
+import PostList from "../pages/PostList.jsx";
 import Root from "../pages/RootLayout";
 
 export const router = createBrowserRouter([
@@ -7,6 +12,18 @@ export const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
-    children: [{ path: "/about", element: <About /> }],
+    errorElement: <ErrorPage />,
+    children: [
+      { index: true, element: <Home /> },
+      { path: "/about", element: <About /> },
+      { path: "/all-notes", element: <App /> },
+      {
+        path: "/all-posts",
+        element: <PostList />,
+        loader: () =>
+          fetch(`https://jsonplaceholder.typicode.com/posts?_limit=5`),
+      },
+      { path: "/posts/:postId", element: <PostDetails /> },
+    ],
   },
 ]);

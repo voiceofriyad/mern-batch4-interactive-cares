@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 export default function Root() {
   return (
     <>
@@ -7,16 +7,25 @@ export default function Root() {
       </div> */}
 
       <div id="sidebar">
-        <h1>React Router Contacts</h1>
+        <h1>My SideBar</h1>
 
         <nav>
           <ul>
             <li>
-              <a href={`/`}>Home</a>
+              <Link to={`/`}>Home</Link>
             </li>
             <li>
-              <a href={`/about`}>About</a>
+              <Link to={`/about`}>About</Link>
             </li>
+            <li>
+              <Link to={`/all-notes`}>All Notes</Link>
+            </li>
+            <li>
+              <Link to={`/all-posts`}>All Posts</Link>
+            </li>
+            {/* <li>
+              <a href={`/all-notes`}>All Notes</a>
+            </li> */}
           </ul>
         </nav>
       </div>
