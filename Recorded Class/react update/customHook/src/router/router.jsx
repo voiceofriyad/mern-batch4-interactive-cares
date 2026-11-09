@@ -7,6 +7,7 @@ import PostDetails from "../pages/PostDetails.jsx";
 import PostList from "../pages/PostList.jsx";
 import Root from "../pages/RootLayout";
 import UserList from "../pages/UserList.jsx";
+import CounterApp from "../pages/CounterApp.jsx";
 
 export const router = createBrowserRouter([
   // { path: "/", element: <div>This is Home Page</div> },
@@ -24,6 +25,7 @@ export const router = createBrowserRouter([
       },
       { path: "/posts/:postId", element: <PostDetails /> },
       { path: "/all-users", element: <UserList /> },
+      { path: "/counter-app", element: <CounterApp /> },
     ],
   },
 ]);

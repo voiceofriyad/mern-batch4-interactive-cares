@@ -26,6 +26,9 @@ export default function Root() {
             <li>
               <Link to={`/all-users`}>All Users</Link>
             </li>
+            <li>
+              <Link to={`/counter-app`}>Counter App</Link>
+            </li>
             {/* <li>
               <a href={`/all-notes`}>All Notes</a>
             </li> */}
