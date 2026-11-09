@@ -6,6 +6,7 @@ import Home from "../pages/Home.jsx";
 import PostDetails from "../pages/PostDetails.jsx";
 import PostList from "../pages/PostList.jsx";
 import Root from "../pages/RootLayout";
+import UserList from "../pages/UserList.jsx";
 
 export const router = createBrowserRouter([
   // { path: "/", element: <div>This is Home Page</div> },
@@ -20,10 +21,9 @@ export const router = createBrowserRouter([
       {
         path: "/all-posts",
         element: <PostList />,
-        loader: () =>
-          fetch(`https://jsonplaceholder.typicode.com/posts?_limit=5`),
       },
       { path: "/posts/:postId", element: <PostDetails /> },
+      { path: "/all-users", element: <UserList /> },
     ],
   },
 ]);

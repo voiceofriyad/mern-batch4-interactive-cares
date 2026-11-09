@@ -23,6 +23,9 @@ export default function Root() {
             <li>
               <Link to={`/all-posts`}>All Posts</Link>
             </li>
+            <li>
+              <Link to={`/all-users`}>All Users</Link>
+            </li>
             {/* <li>
               <a href={`/all-notes`}>All Notes</a>
             </li> */}
