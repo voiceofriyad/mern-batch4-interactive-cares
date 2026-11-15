@@ -1,6 +1,7 @@
-import { useState } from "react";
-import Title from "./components/Title";
+import { useState, useCallback } from "react";
+import Button from "./components/Button";
 import CounterAppTitle from "./components/CounterAppTitle";
+import Title from "./components/Title";
 
 function App() {
   console.log("I am app");
@@ -8,15 +9,15 @@ function App() {
   const [counter, setCounter] = useState(10);
   const [counter2, setCounter2] = useState(50);
 
-  const increaseCounter = () => {
+  const increaseCounter = useCallback(() => {
     // setCounter(counter + 1);
     setCounter((prevCounter) => prevCounter + 1);
-  };
+  }, []);
 
-  const increaseCounter2 = () => {
+  const increaseCounter2 = useCallback(() => {
     // setCounter2(counter2 + 3);
     setCounter2((prevCounter2) => prevCounter2 + 3);
-  };
+  }, []);
 
   return (
     <>
@@ -24,14 +25,14 @@ function App() {
 
       <div className="counter-app-1">
         <CounterAppTitle value={counter} />
-        <button onClick={increaseCounter}>Increase By 1</button>
+        <Button handler={increaseCounter} />
       </div>
 
       <hr />
 
       <div className="counter-app-2">
         <CounterAppTitle value={counter2} />
-        <button onClick={increaseCounter2}>Increase By 3</button>
+        <Button handler={increaseCounter2} />
       </div>
     </>
   );
