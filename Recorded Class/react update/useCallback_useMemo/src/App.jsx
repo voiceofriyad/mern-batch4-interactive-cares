@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useState, useMemo } from "react";
 import Button from "./components/Button";
 import CounterAppTitle from "./components/CounterAppTitle";
 import Title from "./components/Title";
@@ -19,9 +19,13 @@ function App() {
     setCounter2((prevCounter2) => prevCounter2 + 3);
   }, []);
 
-  const isEven = () => {
+  const isEven = useMemo(() => {
+    let i = 0;
+    while (i < 1000000000) {
+      i++;
+    }
     return counter % 2 === 0 ? "Counter is Even" : "Counter is Odd";
-  };
+  }, [counter]);
 
   return (
     <>
@@ -29,7 +33,7 @@ function App() {
 
       <div className="counter-app-1">
         <CounterAppTitle value={counter} />
-        {isEven()}
+        {isEven}
         <Button handler={increaseCounter} />
       </div>
 
