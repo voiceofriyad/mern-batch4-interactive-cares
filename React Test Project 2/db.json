@@ -1,0 +1,22 @@
+{
+  "notes": [
+    {
+      "id": "1",
+      "title": "Note-11"
+    },
+    {
+      "id": "2",
+      "title": "Note-22"
+    },
+    {
+      "id": "3",
+      "title": "Note-3",
+      "isComplete": true
+    },
+    {
+      "id": "PLf3A6jSNJ8",
+      "title": "note test 1"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
